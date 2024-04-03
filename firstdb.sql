@@ -14,27 +14,38 @@ CREATE TABLE vendedor(
 
 CREATE TABLE ingresso(
 	numero INT PRIMARY KEY,
+	idcliente INT,
+	idshow INT,
+	idvendedor INT,
 	CONSTRAINT fkClienteShow
-	FOREIGN KEY idcliente
+	FOREIGN KEY (idcliente)
 	REFERENCES cliente(idcliente),
 	CONSTRAINT fkShowCliente
-	FOREIGN KEY idshow
-	REFERENCES showzao(idshow)
+	FOREIGN KEY (idshow)
+	REFERENCES showzao(idshow),
+	CONSTRAINT fkvendedoringresso
+	FOREIGN KEY (idvendedor)
+	REFERENCES vendedor(idvendedor)
 ); 
 
 CREATE TABLE showzao(
 	idshow INT PRIMARY KEY,
-	datashow DATA,
+	datashow DATE,
 	horario TIME,
 	nomeevento VARCHAR(50),
-	valoringresson VARCHAR(50)
+	valoringresson FLOAT 
 );
 
 CREATE TABLE artistashow (
-	idartistashow INT PRIMARY KEY,
-	CONSTRAINT fkartistashow,
-	FOREIGN KEY idshow
-	REFERENCES showzao(idshow)
+	idartista INT,
+	idshow INT,
+	PRIMARY KEY (idshow, idartista),
+	CONSTRAINT fkartistashow
+	FOREIGN KEY (idshow)
+	REFERENCES showzao(idshow),
+	CONSTRAINT fkshowartista
+	FOREIGN KEY (idartista)
+	REFERENCES artista(idartista)
 ); 
 
 CREATE TABLE artista (

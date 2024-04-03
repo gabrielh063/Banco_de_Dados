@@ -1,0 +1,9 @@
+fornecedor relaciona com contas a pagar, compra 
+cidade fornecedor cliente e vendedor
+vendedor relaciona venda e cidade
+venda realaciona 
+compra forncedor, contas a pagar, produto
+contas receber cliente e caixa
+contas pagar 
+
+usuarios solo
